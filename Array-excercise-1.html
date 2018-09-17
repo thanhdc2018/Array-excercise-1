@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array-excercise-1</title>
+</head>
+<body>
+<button type = "button" onclick = "(creatingArray())">Bài 1: Tạo 1 mảng 10 phần tử</button>
+<button type = "button" onclick = "(maxinArray())">Bài 2: Tạo 1 mảng 10 phần tử và đưa ra hiển thị phần tử lớn nhất</button>
+<button type = "button" onclick = "(averageArray())">Bài 3: Tạo 1 mảng 10 phần tử, đưa ra hiển thị phần tử lớn nhất và giá trị trung bình</button>
+<button type = "button" onclick = "(reverseArray())">Bài 4: Tạo 1 mảng 10 phần tử, đưa ra hiển thị mảng đảo ngược</button>
+<button type = "button" onclick = "(negativeinArray())">Bài 5: Viết chương trình đếm số nguyên âm</button>
+<button type = "button" onclick = "(findinArray(parseInt(prompt('Nhập vào số để tìm: '))))">Bài 6: Tìm 1 số có tồn tại trong mảng không?</button>
+<button type = "button" onclick = "(deleteinArray(parseInt(prompt('Nhập vào số để xoá: '))))">Bài 7: Xoá 1 số có tồn tại trong?</button>
+<button type = "button" onclick = "(sortArray())">Bài 8: Tạo 1 mảng 10 phần tử,sắp xếp theo thứ tự nhỏ dần</button>
+
+<script>
+    function creatingArray(){
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*20)+0));
+        }
+        for (i = 0; i < a.length; i++){
+           show1 += a[i] + " , ";
+           if ( a[i] > 10){
+               show2 += a[i] + " , ";
+           }
+        }document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write("Các phần tử của mảng có giá trị lớn hơn 10 là: " + show2);
+    }
+
+    function maxinArray(){
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        let p = 0;
+        let max = 0;
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*20)+0));
+        }
+        for (i = 0; i < a.length; i++){
+            show1 += a[i] + " , ";
+            if ( a[i] > max){
+                max = a[i];
+                p = i;
+            }
+        }document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write("Các phần tử của mảng có giá trị lớn hơn nhất là: " +max + "; tại vị trí: " + p);
+    }
+
+    function averageArray(){
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        let p = 0;
+        let max = 0;
+        let tb = 0;
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*20)+0));
+        }
+        for (i = 0; i < a.length; i++){
+            show1 += a[i] + " , ";
+            tb = tb + a[i];
+            if ( a[i] > max){
+                max = a[i];
+                p = i;
+            }
+            tb = tb/a.length;
+        }document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write("Các phần tử của mảng có giá trị lớn hơn nhất là: " +max + "; tại vị trí: " + p + "; giá trị trung bình của mảng là: " + tb);
+    }
+
+    function reverseArray(){
+        let a = [];
+        let b = [];
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*5)+5));//[5-10]
+        }
+        for (let j = a.length - 1; j >= 0; j--) {
+            b.push(a[j]);
+        }document.write("Các phần tử của mảng là: " + a + "<br/>");
+        document.write("Các phần tử của mảng đảo ngược là: "  + b );
+    }
+
+    function negativeinArray(){
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        let c = 0;
+        let max = 0;
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*30)-20));
+            show1 = show1 + a[i] + " , ";
+        }
+        for (i = 0; i < a.length; i++){
+            if ( a[i] < 0){
+                c++;
+            }
+        }document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write("Tổng số phần tử của mảng có giá trị nhỏ hơn 0: " +c );
+    }
+
+    function findinArray(x){
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        let c = 0;
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*100)-50));
+            show1 = show1 + a[i] + " , ";
+        }
+        for (i = 0; i < a.length; i++){
+            if ( a[i] === x){
+                c++;
+            }
+            if( c > 0 ){
+                show2 = + x +" is in the array";
+            }
+            else{show2 = + x +" is not in the array"; }
+        }document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write(show2);
+    }
+
+    function deleteinArray(x) {
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        let c = 1;
+        for (let i = 0; i < 5; i++) {
+            a.push(Math.floor((Math.random() * 5) + 5));
+            show1 = show1 + a[i] + " , ";
+        }
+        for (let k = 0; k < a.length; k++) {
+            if (a[k] === x) {
+                c = c++;
+                a.splice(k,1);
+            }
+        }
+        for (i = 0 ; i < c; i ++){
+            a.push(0);
+        }
+        for (j = 0; j < a.length; j++) {
+            show2 = show2 + a[j] + " , ";
+        }
+        document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write("Các phần tử của mảng sau khi chỉnh sửa là: " + show2);
+    }
+
+    function sortArray(){
+        let a = [];
+        let show1 = "";
+        let show2 = "";
+        let c = 0;
+        for ( let i = 0; i < 10; i++){
+            a.push(Math.floor((Math.random()*30)-20));
+            show1 = show1 + a[i] + " , ";
+        }
+        for (i = 0; i < a.length-1; i++){
+            for (j = i; j < a.length; j++){
+              if ( a[i] < a[j]){
+                  let b = a[j];
+                  a[i] = a[j];
+                  a[j] = b;
+            }
+         }
+        }
+        for ( let i = 0; i < 10; i++){
+            show2 = show2 + a[i] + " , ";
+        }
+        document.write("Các phần tử của mảng là: " + show1 + "<br/>");
+        document.write("Các phần tử của mảng theo thứ tự giảm dần là: " +show2 );
+    }
+
+
+</script>
+</body>
+</html>
